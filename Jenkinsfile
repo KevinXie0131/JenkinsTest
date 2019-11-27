@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment {
+        CC = 'clang'
+    }
     stages{
         stage('Build'){
             steps{
@@ -12,13 +15,16 @@ pipeline{
             }
         }
         stage('Example'){
+            environment {
+                DEBUG_FLAGS = '-g'
+            }
             steps{
                 script{
                     def browsers = ['chrome','firefox']
                     for (int i = 0; i < browsers.size(); ++i){
                         echo "Testing the ${browsers[i]} browsers"
                     }
-                    sh 'printenv'
+                    sh "${CC} ${DEBUG_FLAGS}"
                 }
             }
         }
