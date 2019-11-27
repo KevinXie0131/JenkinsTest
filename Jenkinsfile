@@ -25,6 +25,7 @@ pipeline{
                         echo "Testing the ${browsers[i]} browsers"
                     }
                     echo "${CC} ${DEBUG_FLAGS}"
+                    echo "${env.g_name}"
                 }
             }
         }
