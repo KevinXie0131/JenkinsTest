@@ -24,7 +24,7 @@ pipeline{
                     for (int i = 0; i < browsers.size(); ++i){
                         echo "Testing the ${browsers[i]} browsers"
                     }
-                    sh "${CC} ${DEBUG_FLAGS}"
+                    echo "${CC} ${DEBUG_FLAGS}"
                 }
             }
         }
