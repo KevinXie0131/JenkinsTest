@@ -4,7 +4,6 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Hello World@@@'
-                sh 'printenv'
             }
             post{
                 always{
@@ -19,6 +18,7 @@ pipeline{
                     for (int i = 0; i < browsers.size(); ++i){
                         echo "Testing the ${browsers[i]} browsers"
                     }
+                    sh 'printenv'
                 }
             }
         }
